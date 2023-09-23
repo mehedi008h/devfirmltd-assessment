@@ -1,0 +1,33 @@
+type Product {
+    productType: String!
+    product: String!
+    description: String!
+    total: Float!
+}
+
+type Invoice {
+    client: String!
+    trip: String!
+    invoiceDate: String!
+    image: String!
+    products: [Product!]!
+}
+
+input ProductInput {
+    productType: String!
+    product: String!
+    description: String!
+    total: Float!
+}
+
+input InvoiceInput {
+    client: String!
+    trip: String!
+    invoiceDate: String!
+    image: String!
+    products: [ProductInput!]!
+}
+
+type Mutation {
+    createInvoice(input: InvoiceInput!): Invoice
+}
